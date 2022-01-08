@@ -1,0 +1,21 @@
+
+
+    <div class="col">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 >{{ livre.titre }}</h5>
+                <p >{% for g in livre.genres %}
+                        {{ g.nom }},
+                    {% endfor %}</p>
+                <p >{% for a in livre.auteurs %}
+                    {{ a }},
+                    {% endfor %}</td></p>
+                <div class="d-flex justify-content-evenly"  >
+                    <p>NOTE={{ livre.note }}</p>
+                    <p>{{ livre.isbn }}</p>
+                </div>
+                <a href="{{ path('livre_show', {'id': livre.id}) }}" class="btn btn-primary">show</a>
+            </div>
+        </div>
+    </div>
+

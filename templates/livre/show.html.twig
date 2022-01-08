@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre{% endblock %}
+
+{% block body %}
+    <h1>Livre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ livre.id }}</td>
+            </tr>
+            <tr>
+                <th>Isbn</th>
+                <td>{{ livre.isbn }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ livre.titre }}</td>
+            </tr>
+            <tr>
+                <th>Nombre_pages</th>
+                <td>{{ livre.nombrePages }}</td>
+            </tr>
+            <tr>
+                <th>Date_parution</th>
+                <td>{{ livre.dateParution ? livre.dateParution|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ livre.note }}</td>
+            </tr>
+            <tr>
+                 <th>Genres</th>
+                <td>
+                {% for g in livre.genres %}
+                {{ g.nom }},
+                {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <th>Auteurs</th>
+                <td>
+                    {% for a in livre.auteurs %}
+                        {{ a }},
+                    {% endfor %}
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('livre_index') }}">back to list</a>
+{% endblock %}
